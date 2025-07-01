@@ -1,4 +1,4 @@
-# DSA
+# TheDSAs
 Personal Implementation of multiple Data Structures and Algorithms
 
 Following is the list of all the currently implementations.
