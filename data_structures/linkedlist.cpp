@@ -120,7 +120,7 @@ class LinkedList {
                 count++;
             }
 
-            if (!temp || !temp->next) throw std::out_of_range("Delete requested at out of bounds index.");
+            if (!temp || !temp->next) throw std::out_of_range("delete requested at out of bounds index.");
 
             Node* nextNode = temp->next;
             temp->next = nextNode->next;
@@ -213,6 +213,71 @@ class LinkedList {
             return len;
         }
 
+        /* 4. Search and Access */
+
+        /* @brief Searches if @param value is in the list
+         */
+        bool search(int value) {
+            Node *temp = this->head;
+
+            while (temp) {
+                if (value == temp->data) {
+                    return true;
+                }
+                temp = temp->next;
+            }
+
+            return false;
+        }
+
+        /* @brief Gets the value stored at @param index
+         * @throws std::out_of_range if @param index is greater than list size
+         */
+        int getValueAt(std::size_t index) {
+            Node *temp = this->head;
+            std::size_t count = 0;
+
+            while (temp) {
+                if (count == index) {
+                    return temp->data;
+                }
+                temp = temp->next;
+                count++;
+            }
+        throw std::out_of_range("delete requested at out of bounds index.");
+        }
+
+        /* 6. Edge utilities */
+
+        /* @brief Returns if the list is empty or not
+         */
+        bool isEmpty() {
+            return !this->head;
+        }
+
+        /* @brief Returns the first element of the list
+         * @throws std::underflow_error if the list is empty.
+         */
+        int front() {
+            if (this->head) return this->head->data;
+            throw std::underflow_error("List is empty.");
+        }
+
+        /* @brief Returns the last element of the list
+         * @throws std::underflow_error if the list is empty.
+         */
+        int back() {
+            if (!this->head) throw std::underflow_error("List is empty.");
+
+            Node *temp = this->head;
+            while (temp->next) {
+                temp = temp->next;
+            }
+
+            return temp->data;
+        }
+
+
         ~LinkedList() {
             Node *temp = head;
 
@@ -255,13 +320,13 @@ These are the core: ✅✅
 
     Deletions
 
-        deleteFromBeginning()✅
+        deleteFromBeginning() ✅
 
-        deleteFromEnd()✅
+        deleteFromEnd() ✅
 
-        deleteAtPosition(int pos)✅
+        deleteAtPosition(int pos) ✅
 
-        deleteByValue(int val)✅
+        deleteByValue(int val) ✅
 
     Traversal / Display
 
@@ -269,11 +334,11 @@ These are the core: ✅✅
 
         length() — count number of nodes ✅
 
-🔁 Search & Access
+🔁 Search & Access ✅✅
 
-    bool search(int val)
+    bool search(int val) ✅
 
-    int getAtPosition(int pos) — returns data at pos
+    int getAtPosition(int pos) — returns data at pos ✅
 
 ♻️ Modifying the List
 
@@ -283,13 +348,13 @@ These are the core: ✅✅
 
     void clear() — delete all nodes
 
-⚠️ Edge Utilities
+⚠️ Edge Utilities ✅✅
 
-    bool isEmpty()
+    bool isEmpty() ✅
 
-    int front() — return first element
+    int front() — return first element ✅
 
-    int back() — return last element
+    int back() — return last element ✅
 
 🧠 Optional but Good Practice
 
