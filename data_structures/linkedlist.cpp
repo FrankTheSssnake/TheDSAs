@@ -7,7 +7,14 @@
 #include <cstddef>
 #include <stdexcept>
 
-/**
+
+/* 
+ * @namespace
+ * @brief Parent namespace for namespaces of various data structures
+ */
+namespace data_structures {
+
+/*
  * @namespace linked_list
  * @brief Functions for singly linked list algorithm
  */
@@ -290,7 +297,7 @@ class LinkedList {
 };
 
 } // namespace linked_list
-
+} // namespace data_structures
 
 /**
  * Main function:
@@ -299,8 +306,6 @@ class LinkedList {
  * @returns 0 on exit
  */
 int main() {
-    linked_list::LinkedList *l = new linked_list::LinkedList();
-
     return 0;
 }
 
