@@ -1,5 +1,6 @@
 /*
  * @file
+ * 
  * @brief Implements Selction Sort Algorithm (Recursion)
  *
  * Algorithm:
@@ -17,12 +18,16 @@
  */
 namespace algorithms {
 
-/* @namespace sort
+/* 
+ * @namespace sort
+ * 
  * @brief Functions for sorting algorithms
  */
 namespace sort {
 
-/* @brief Applies Merge Sort in-place on @param array
+/* 
+ * @brief Applies Merge Sort in-place on @param array
+ * 
  * @param array Array to be sorted
  */
 template <typename T>

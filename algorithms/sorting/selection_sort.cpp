@@ -1,5 +1,6 @@
 /*
  * @file
+ * 
  * @brief Implements Selction Sort Algorithm
  *
  * Algorithm:
@@ -19,12 +20,16 @@
  */
 namespace algorithms {
 
-/* @namespace sort
+/* 
+ * @namespace sort
+ * 
  * @brief Functions for sorting algorithms
  */
 namespace sort {
 
-/* @brief Applies Selection Sort in-place on @param array
+/* 
+ * @brief Applies Selection Sort in-place on @param array
+ * 
  * @param array Array to be sorted
  * @param size Size of the array
  */
@@ -42,7 +47,9 @@ void selectionSort(int *array, std::size_t size) {
     }
 }
 
-/* @brief Applies Selection Sort in-place on @param array
+/* 
+ * @brief Applies Selection Sort in-place on @param array
+ * 
  * @param array Array to be sorted
  */
 template <typename T>

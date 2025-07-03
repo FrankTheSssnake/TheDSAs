@@ -1,6 +1,7 @@
 /*
  * @file
- * @brief Implements Insertion Sort Algorithm
+ *
+ * @brief Implements Insertion Sort Algorithm (Iterative)
  *
  * Algorithm:
  * 1. For every element, check its preceding element and swap if they are not sorted
@@ -12,16 +13,21 @@
 
 /*
  * @namespace algorithms
+ * 
  * @brief Parent namespace for all namespaces of various algorithms
  */
 namespace algorithms {
 
-/* @namespace sort
+/* 
+ * @namespace sort
+ * 
  * @brief Functions for sorting algorithms
  */
 namespace sort {
 
-/* @brief Applies Insertion Sort in-place on @param array
+/* 
+ * @brief Applies Insertion Sort in-place on @param array
+ * 
  * @param array Array to be sorted
  * @param size Size of the array
  */
@@ -39,7 +45,9 @@ void insertionSort(int *array, std::size_t size) {
     }
 }
 
-/* @brief Applies Insertion Sort in-place on @param array
+/* 
+ * @brief Applies Insertion Sort in-place on @param array
+ * 
  * @param array Array to be sorted
  */
 template <typename T>
