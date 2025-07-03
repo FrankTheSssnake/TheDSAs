@@ -1,5 +1,6 @@
 /*
  * @file
+ *
  * @brief Implementation of Singly Linked List
  */
 
@@ -10,12 +11,14 @@
 
 /* 
  * @namespace
+ *
  * @brief Parent namespace for namespaces of various data structures
  */
 namespace data_structures {
 
 /*
  * @namespace linked_list
+ *
  * @brief Functions for singly linked list algorithm
  */
 namespace linked_list {
@@ -42,7 +45,9 @@ class LinkedList {
 
         /* 1. Insertions */
 
-        /* @brief Inserts @param value at the beginning
+        /* 
+         * @brief Inserts @param value at the beginning
+         * 
          * @param value value to be inserted
          */
         void insert(int value) {
@@ -51,9 +56,12 @@ class LinkedList {
             this->head = newNode;
         }
         
-        /* @brief Inserts @param value at the @param index
+        /* 
+         * @brief Inserts @param value at the @param index
+         * 
          * @param value value to be inserted
          * @param index index at which @param value is to be inserted
+         * 
          * @throws std::out_of_range if index is greater than list size
          */
         void insertAt(int value, std::size_t index) {
@@ -79,7 +87,9 @@ class LinkedList {
             temp->next = newNode;
         }
 
-        /* @brief Inserts @param value at the end
+        /* 
+         * @brief Inserts @param value at the end
+         * 
          * @param value value to be inserted
          */
         void insertAtEnd(int value) {
@@ -99,7 +109,9 @@ class LinkedList {
 
         /* 2. Deletions */
 
-        /* @brief Deletss the value from the beginning
+        /* 
+         * @brief Deletss the value from the beginning
+         * 
          * @throws std::underflow_error if Linked List is empty
          */
         void deleteFromBeginning() {
@@ -110,8 +122,11 @@ class LinkedList {
             delete first;
         }
 
-        /* @brief Deletes the value at @param index
+        /* 
+         * @brief Deletes the value at @param index
+         * 
          * @param index Index at which the value is to be deleted
+         * 
          * @throws std::out_of_range if index is greater than list size
          */
         void deleteAt(std::size_t index) {
@@ -135,7 +150,9 @@ class LinkedList {
             delete nextNode;
         }
 
-        /* @brief Deletes the value from the end
+        /* 
+         * @brief Deletes the value from the end
+         * 
          * @throws std::underflow_error if Linked List is empty
          */
         void deleteFromEnd() {
@@ -159,7 +176,9 @@ class LinkedList {
             delete current;
         }
 
-        /* @brief Deletes @param value from Linked List if it exists
+        /* 
+         * @brief Deletes @param value from Linked List if it exists
+         * 
          * @throws std::invalid_argument if @param value is not in Linked List
          */
         void deleteByValue(int value) {
@@ -190,7 +209,8 @@ class LinkedList {
 
         /* 3. Traversal/Display */
 
-        /* @brief Displays the entire Linked List
+        /* 
+         * @brief Displays the entire Linked List
          */
         void display() {
             Node *temp = this->head;
@@ -203,8 +223,8 @@ class LinkedList {
             std::cout << std::endl;
         }
 
-        /* @brief Length of the Linked List
-         * @return std::size_t
+        /* 
+         * @brief Length of the Linked List
          */
         std::size_t length() {
             std::size_t len = 0;
@@ -222,7 +242,8 @@ class LinkedList {
 
         /* 4. Search and Access */
 
-        /* @brief Searches if @param value is in the list
+        /* 
+         * @brief Searches if @param value is in the list
          */
         bool search(int value) {
             Node *temp = this->head;
@@ -237,7 +258,9 @@ class LinkedList {
             return false;
         }
 
-        /* @brief Gets the value stored at @param index
+        /* 
+         * @brief Gets the value stored at @param index
+         * 
          * @throws std::out_of_range if @param index is greater than list size
          */
         int getValueAt(std::size_t index) {
@@ -256,13 +279,16 @@ class LinkedList {
 
         /* 6. Edge utilities */
 
-        /* @brief Returns if the list is empty or not
+        /* 
+         * @brief Returns if the list is empty or not
          */
         bool isEmpty() {
             return !this->head;
         }
 
-        /* @brief Returns the first element of the list
+        /* 
+         * @brief Returns the first element of the list
+         * 
          * @throws std::underflow_error if the list is empty.
          */
         int front() {
@@ -270,7 +296,9 @@ class LinkedList {
             throw std::underflow_error("List is empty.");
         }
 
-        /* @brief Returns the last element of the list
+        /* 
+         * @brief Returns the last element of the list
+         * 
          * @throws std::underflow_error if the list is empty.
          */
         int back() {
@@ -297,6 +325,7 @@ class LinkedList {
 };
 
 } // namespace linked_list
+
 } // namespace data_structures
 
 /**
