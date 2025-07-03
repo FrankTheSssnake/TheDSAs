@@ -11,6 +11,7 @@
 
 #include <cstddef>
 #include <utility>
+#include <vector>
 
 /*
  * @namespace algorithms
@@ -30,17 +31,35 @@ namespace sort {
 void selectionSort(int *array, std::size_t size) {
     std::size_t min;
 
-    for (std::size_t start = 0; start < size; ++start) {
-        min = start;
+    for (std::size_t i = 0; i < size; ++i) {
+        min = i;
 
-        for (std::size_t i = start + 1; i < size; i++) {
-            if (array[i] < array[min]) min = i;
+        for (std::size_t j = i + 1; i < size; ++j) {
+            if (array[j] < array[min]) min = j;
         }
 
-        std::swap(array[start], array[min]);
+        std::swap(array[i], array[min]);
     }
 }
 
+/* @brief Applies Selection Sort in-place on @param array
+ * @param array Array to be sorted
+ */
+template <typename T>
+void selectionSort(std::vector<T>& array) {
+    typename std::vector<T>::iterator min;
+
+    for (auto it = array.begin(); it != array.end(); ++it) {
+        min = it;
+
+        for (auto jt = it + 1; jt < array.end(); ++jt) {
+            if (*jt < *min) min = jt;
+        }
+
+        if (min != it) std::swap(*it, *min);
+
+    }
+}
 
 } // namespace sort
 
