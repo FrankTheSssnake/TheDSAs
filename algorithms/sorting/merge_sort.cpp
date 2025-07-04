@@ -61,7 +61,3 @@ void mergeSort(std::vector<T>& arr) {
 
 } // namespace algorithms
 
-
-int main() {
-    return 0;
-}

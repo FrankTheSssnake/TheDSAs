@@ -62,8 +62,3 @@ void bubbleSort(std::vector<T>& array, std::size_t size) {
 
 } // namespace algorithms
 
-
-int main() {
-    return 0;
-}
-

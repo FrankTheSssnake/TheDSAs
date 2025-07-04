@@ -95,8 +95,3 @@ void insertionSort(std::vector<T>& array, std::size_t size, std::size_t start = 
 
 } // namespace algorithms
 
-
-int main() {
-    return 0;
-}
-
