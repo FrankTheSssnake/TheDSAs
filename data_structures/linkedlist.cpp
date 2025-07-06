@@ -38,12 +38,22 @@ class LinkedList {
     private:
         Node *head;
 
+        void _sort(std::size_t size) {
+            if (size <= 1) return;
+
+            Node *temp = this->head;
+            while (temp->next) {
+                if (temp->data > temp->next->data) std::swap(temp->data, temp->next->data);
+                temp = temp->next;
+            }
+
+            _sort(size - 1);
+        }
+
     public:
         LinkedList() {
             head = nullptr;
         }
-
-        /* 1. Insertions */
 
         /* 
          * @brief Inserts @param value at the beginning
@@ -106,8 +116,6 @@ class LinkedList {
             
             temp->next = newNode;
         }
-
-        /* 2. Deletions */
 
         /* 
          * @brief Deletss the value from the beginning
@@ -207,8 +215,6 @@ class LinkedList {
             delete current;
         }
 
-        /* 3. Traversal/Display */
-
         /* 
          * @brief Displays the entire Linked List
          */
@@ -239,8 +245,6 @@ class LinkedList {
 
             return len;
         }
-
-        /* 4. Search and Access */
 
         /* 
          * @brief Searches if @param value is in the list
@@ -277,7 +281,33 @@ class LinkedList {
         throw std::out_of_range("delete requested at out of bounds index.");
         }
 
-        /* 6. Edge utilities */
+        /*
+         * @brief Reverses the list in-place
+         */
+        void reverse() {
+            Node *previous = nullptr;
+            Node *current = this->head;
+            Node *after;
+
+            while (current) {
+                after = current->next;
+                current->next = previous;
+                
+                previous = current;
+                current = after;
+            }
+            
+            this->head = previous;
+        }
+
+        /* 
+         * @brief Sorts the list in-place using recursive Bubble Sort
+         */
+        void sort() {
+            if (!this->head) return;
+            
+            _sort(this->length());
+        }
 
         /* 
          * @brief Returns if the list is empty or not
@@ -327,74 +357,3 @@ class LinkedList {
 } // namespace linked_list
 
 } // namespace data_structures
-
-/**
- * Main function:
- * Allows the user add and delete values from the list.
- * Also allows user to search for and display values in the list.
- * @returns 0 on exit
- */
-int main() {
-    // TODO
-    return 0;
-}
-
-
-/* TODO
-✅ Essential Linked List Methods
-
-These are the core: ✅✅
-
-    Insertions
-
-        insertAtBeginning(int val) ✅
-
-        insertAtEnd(int val) ✅
-
-        insertAtPosition(int pos, int val) ✅
-
-    Deletions
-
-        deleteFromBeginning() ✅
-
-        deleteFromEnd() ✅
-
-        deleteAtPosition(int pos) ✅
-
-        deleteByValue(int val) ✅
-
-    Traversal / Display
-
-        display() ✅
-
-        length() — count number of nodes ✅
-
-🔁 Search & Access ✅✅
-
-    bool search(int val) ✅
-
-    int getAtPosition(int pos) — returns data at pos ✅
-
-♻️ Modifying the List
-
-    void reverse() — reverse the list in-place
-
-    void sort() — sort in ascending order (e.g., using bubble sort)
-
-    void clear() — delete all nodes
-
-⚠️ Edge Utilities ✅✅
-
-    bool isEmpty() ✅
-
-    int front() — return first element ✅
-
-    int back() — return last element ✅
-
-🧠 Optional but Good Practice
-
-    Destructor to free memory (~LinkedList())✅
-
-    Optional: copy constructor, assignment operator (if you want full Rule of 3 support)
-*/
-
